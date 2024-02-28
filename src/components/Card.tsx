@@ -9,7 +9,7 @@ export default function Card({ country }: Props) {
     <div className="flex flex-col rounded-lg bg-white shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl">
       <div className="flex h-[150px]">
         <img
-          className="h-[100%] w-[100%] object-cover"
+          className="w-[100%] h-[100%] object-cover"
           src={country.flags.svg}
           alt={country.flags.alt}
         />
