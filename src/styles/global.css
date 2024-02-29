@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .light-theme {
-  --text: hsl(200, 15%, 8%);  /* (light mode text) */
+  --text: hsl(204, 16%, 12%);  /* (light mode text) */
   --text-secundary-text: hsl(0, 0%, 40%); 
   
   --background: hsl(0, 0%, 95%); /* (Light Mode Background) */
@@ -11,7 +11,7 @@
 }
 
 .dark-theme {
-  --text: hsl(0, 0%, 100%); /* (Dark Mode Text & Light Mode Elements) */
+  --text: hsl(0, 0%, 90%); /* (Dark Mode Text & Light Mode Elements) */
   --text-secundary-text: hsl(0, 0%, 70%); 
 
   --card-background: hsl(209, 23%, 22%); /* (Dark Mode Elements) */
