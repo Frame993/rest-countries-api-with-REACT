@@ -7,7 +7,7 @@ interface Props {
 
 export default function Filter( { onSelect }: Props) {
   return (
-    <select className="filter shadow-lg w-full md:w-[200px]" id="region" onChange={(e) => onSelect(e.target.value)}>
+    <select className="filter shadow-lg w-full md:w-[200px] bg-card-background" id="region" onChange={(e) => onSelect(e.target.value)}>
       <option value="All">Filter by region</option>
       <option value="Africa">Africa</option>
       <option value="Americas">America</option>

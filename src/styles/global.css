@@ -2,10 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --secondary-color: #f0f0f0;
-  --text-color: #222;
+.light-theme {
+  --text: hsl(200, 15%, 8%);  /* (light mode text) */
+  --text-secundary-text: hsl(0, 0%, 40%); 
+  
+  --background: hsl(0, 0%, 95%); /* (Light Mode Background) */
+  --card-background: hsl(0, 0%, 98%); /* (Dark Mode Text & Light Mode Elements) */
 }
+
+.dark-theme {
+  --text: hsl(0, 0%, 100%); /* (Dark Mode Text & Light Mode Elements) */
+  --text-secundary-text: hsl(0, 0%, 70%); 
+
+  --card-background: hsl(209, 23%, 22%); /* (Dark Mode Elements) */
+  --background: hsl(207, 26%, 17%); /* (Dark Mode Background) */
+}
+
 
 * {
   margin: 0;
@@ -15,14 +27,15 @@
 }
 
 body {
-  background-color: var(--secondary-color);
+  background-color: var(--background);
+  color: var(--text);
 }
 
 h1 {
   font-family: sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 p {

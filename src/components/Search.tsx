@@ -4,7 +4,7 @@ interface Props {
 
 export default function Search({ onSearch }: Props) {
   return (
-    <div  className="flex w-full md:w-[400px] h-[50px] rounded-[6px] px-5 shadow-lg bg-white items-center gap-3">
+    <div  className="flex w-full md:w-[400px] h-[50px] rounded-[6px] px-5 shadow-lg bg-card-background items-center gap-3">
       <svg
         width="16"
         height="16"
@@ -21,7 +21,7 @@ export default function Search({ onSearch }: Props) {
         />
       </svg>
       <input
-      className="border-none outline-none"
+      className="border-none outline-none bg-card-background"
         type="text"
         placeholder="Search for a country..."
         onChange={(e) => onSearch(e.target.value)}
