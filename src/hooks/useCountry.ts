@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Country, Region } from "../interfaces/GetCountriesResponse";
+import { Country} from "../interfaces/GetCountriesResponse";
 import { useEffect } from "react";
 
 export const useCountry = () => {
