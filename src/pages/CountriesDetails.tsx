@@ -1,10 +1,18 @@
 import React from "react";
 import flag from "../assets/Flag_of_Russia.svg";
+import { useLocation } from "react-router-dom";
+import { Country } from "../interfaces/GetCountriesResponse";
 
 export default function CountriesDetails() {
+  const location = useLocation();
+  const country = location.state as Country;
+
   return (
     <div className="flex flex-col w-[80%] md:max-w-[1200px] mx-auto mt-10 gap-20 pb-10">
-      <button className="flex items-center w-fit gap-2 bg-card-background px-8 py-2 rounded-md shadow-lg pointer">
+      <button
+        onClick={() => window.history.back()}
+        className="flex items-center w-fit gap-2 bg-card-background px-8 py-2 rounded-md shadow-lg pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-arrow-narrow-left"
@@ -25,54 +33,66 @@ export default function CountriesDetails() {
         Back
       </button>
 
-      <div className="flex flex-col md:flex-row gap-6 justify-between">
-        <img className="md:w-[50%] w-[100%] object-contain" src={flag} alt="flag" />
-        <div className="flex flex-col justify-between gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+        <img
+          className="h-full object-cover rounded-lg shadow-lg aspect-[559/373]"
+          src={country.flags.svg}
+          alt={`${country.name.common}`}
+        />
+        <div className="flex flex-col gap-6 justify-center">
           <h1>Country name</h1>
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex flex-col gap-2">
               <p>
-                Native name: <span>Belgie</span>
+                Native name: <span>{country.name.official}</span>
               </p>
               <p>
-                Population: <span>11,000,000</span>
+                Population: <span>{country.population}</span>
               </p>
               <p>
-                Region: <span>Europe</span>
+                Region: <span>{country.region}</span>
               </p>
               <p>
-                Sub Region: <span>Europe</span>
+                Sub Region: <span>{country.subregion}</span>
               </p>
               <p>
-                Capital: <span>Brussels</span>
+                Capital: <span>{country.capital}</span>
               </p>
             </div>
             <div className="flex flex-col gap-2">
               <p>
-                Top Level Domain: <span>.be</span>
+                Top Level Domain: <span>{country.tld}</span>
               </p>
               <p>
-                Currencies: <span>Euro</span>
+                Currencies:{" "}
+                <span>
+                  {country.currencies instanceof Array &&
+                    country.currencies.map((currency: any) => currency.name)}
+                </span>
               </p>
               <p>
-                languages: <span>Dutch, French, German</span>
+                languages:{" "}
+                <span>
+                  {country.languages instanceof Array &&
+                    country.languages.map((language: any) => language.name)}
+                </span>
               </p>
+
             </div>
           </div>
-          <div className="flex flex-col items-start md:items-center md:flex-row gap-6">
-          <p>Border Countries:</p>
-          <div className="flex gap-4 w-fit flex-wrap items-center">
-            <span className="flex items-center w-fit gap-2 bg-card-background px-8 py-2 rounded-md shadow-lg pointer">
-              France
-            </span>
-            <span className="flex items-center w-fit gap-2 bg-card-background px-8 py-2 rounded-md shadow-lg pointer">
-              Germany
-            </span>
-            <span className="flex items-center w-fit gap-2 bg-card-background px-8 py-2 rounded-md shadow-lg pointer">
-              netherlands
-            </span>
+          {country.borders && country.borders?.length > 0 && (
+            <div className="flex flex-col items-start md:items-start lg:items-center md:flex-col lg:flex-row gap-6">
+            <p>Border Countries:</p>
+            <div className="flex gap-4 w-fit flex-wrap items-center">
+              {country.borders?.map((border: string) => (
+                <span className="flex items-center w-fit gap-2 bg-card-background px-8 py-2 rounded-md shadow-lg pointer">
+                  {border}
+                </span>
+              ))}
+            </div>
           </div>
-          </div>
+          )}
+          
         </div>
       </div>
     </div>

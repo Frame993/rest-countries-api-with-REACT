@@ -2,9 +2,14 @@ import { useCountry } from "../hooks/useCountry";
 import Card from "../components/Card";
 import Search from "../components/Search";
 import Filter from "../components/Filter";
+import { useNavigate, useRoutes } from "react-router-dom";
 
 export default function Countries() {
+
   const { filteredCountries, searchCountries, filterByRegion } = useCountry();
+
+  const navigate = useNavigate()
+
 
   return (
     <div className="flex flex-col w-[80%] md:max-w-[1200px] mx-auto">
@@ -14,7 +19,7 @@ export default function Countries() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {filteredCountries?.map((country) => (
-          <Card key={country.name.common} country={country} />
+          <Card onCountryClick={(country) => navigate(`/details/${country.name.common}`, { state: country })} key={country.name.common} country={country} />
         ))}
       </div>
     </div>

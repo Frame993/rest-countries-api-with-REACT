@@ -13,11 +13,9 @@ const router = createBrowserRouter([
     errorElement: <div>Error 404</div>
   },
   {
-    path: '/details',
+    path: '/details/:name',
     element: <CountriesDetails />
   }
-  
-  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

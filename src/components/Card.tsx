@@ -2,11 +2,12 @@ import { Country } from "../interfaces/GetCountriesResponse";
 
 interface Props {
   country: Country;
+  onCountryClick: (country: Country) => void;
 }
 
-export default function Card({ country }: Props) {
+export default function Card({ country, onCountryClick  }: Props) {
   return (
-    <div className="flex flex-col rounded-lg bg-card-background shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl">
+    <div onClick={() => onCountryClick(country)} className="flex flex-col rounded-lg bg-card-background shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl">
       <div className="flex h-[150px]">
         <img
           className="w-[100%] h-[100%] object-cover"
