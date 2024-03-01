@@ -39,12 +39,29 @@ h1 {
 }
 
 p {
+  color:var(--text);
   font-family: sans-serif;
   font-size: 14px;
   font-weight: bold;
 }
 span {
+  color:var(--text-secundary-text);
   font-family: sans-serif;
   font-size: 14px;
   font-weight: normal;
+}
+
+.filter {
+  appearance: none;
+  background: url("data:image/svg+xml,<svg height='10px' width='20px' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+    no-repeat;
+  background-position: calc(100% - 0.75rem) center !important;
+  background-color: var(--card-background);
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding-right: 60px;
+  padding-left: 20px;
 }
