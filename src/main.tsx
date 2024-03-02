@@ -9,8 +9,7 @@ import CountriesDetails from './pages/CountriesDetails'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Countries />,
-    errorElement: <div>Error 404</div>
+    element: <Countries />
   },
   {
     path: '/details/:name',
