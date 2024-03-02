@@ -2,7 +2,7 @@ import { useCountry } from "../hooks/useCountry";
 import Card from "../components/Card";
 import Search from "../components/Search";
 import Filter from "../components/Filter";
-import { useNavigate, useRoutes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Countries() {
 

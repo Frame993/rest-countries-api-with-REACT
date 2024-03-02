@@ -1,5 +1,3 @@
-import React from "react";
-import flag from "../assets/Flag_of_Russia.svg";
 import { useLocation } from "react-router-dom";
 import { Country } from "../interfaces/GetCountriesResponse";
 
@@ -35,7 +33,7 @@ export default function CountriesDetails() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
         <img
-          className="h-full object-cover rounded-lg shadow-lg aspect-[559/373]"
+          className="h-full w-full object-cover shadow-lg rounded-lg aspect-[559/373]"
           src={country.flags.svg}
           alt={`${country.name.common}`}
         />
