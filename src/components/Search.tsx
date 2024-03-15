@@ -21,7 +21,7 @@ export default function Search({ onSearch }: Props) {
         />
       </svg>
       <input
-      className="border-none outline-none bg-card-background"
+      className="border-none outline-none bg-card-background w-full"
         type="text"
         placeholder="Search for a country..."
         onChange={(e) => onSearch(e.target.value)}

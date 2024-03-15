@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Country} from "../interfaces/GetCountriesResponse";
+import { Country } from "../interfaces/GetCountriesResponse";
 import { useEffect } from "react";
 
 export const useCountry = () => {
@@ -7,10 +7,14 @@ export const useCountry = () => {
   const [filteredCountries, setFilteredCountries] = useState([] as Country[]);
 
   const getCountries = async () => {
-    const response = await fetch("https://restcountries.com/v3.1/all");
-    const data = await response.json();
-    setCountries(data);
-    setFilteredCountries(data);
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const data = await response.json();
+      console.log(data)
+      setCountries(data);
+      setFilteredCountries(data);
+    } catch (error) {
+    }
   };
 
   const searchCountries = (search: string) => {
@@ -25,12 +29,20 @@ export const useCountry = () => {
     if (region === "All") {
       return setFilteredCountries(countries);
     }
-    return setFilteredCountries(countries.filter((country) => country.region === region));
-  }
+    return setFilteredCountries(
+      countries.filter((country) => country.region === region)
+    );
+  };
 
   useEffect(() => {
     getCountries();
   }, []);
 
-  return { getCountries, countries, filteredCountries, searchCountries, filterByRegion };
+  return {
+    getCountries,
+    countries,
+    filteredCountries,
+    searchCountries,
+    filterByRegion,
+  };
 };
