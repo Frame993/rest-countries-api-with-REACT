@@ -38,7 +38,7 @@ export default function CountriesDetails() {
           alt={`${country.name.common}`}
         />
         <div className="flex flex-col gap-6 justify-center">
-          <h1>Country name</h1>
+          <h1>{country.name.common}</h1>
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex flex-col gap-2">
               <p>
